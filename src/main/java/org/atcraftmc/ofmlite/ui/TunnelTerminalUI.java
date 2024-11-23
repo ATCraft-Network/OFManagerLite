@@ -21,6 +21,7 @@ public final class TunnelTerminalUI implements InstanceListener {
     private JButton toggleButton;
     private JButton restartButton;
     private JPanel _root;
+    private JLabel tunnelInfo;
 
     public TunnelTerminalUI(Instance instance, MainWindowUI parent) {
         this.instance = instance;
@@ -55,6 +56,7 @@ public final class TunnelTerminalUI implements InstanceListener {
         this.restartButton.setEnabled(b);
         this.toggleButton.setText(b ? "关闭" : "启动");
         this.parent.update();
+        this.tunnelInfo.setText(this.instance.toString());
     }
 
     private void append(String line) {
@@ -136,7 +138,7 @@ public final class TunnelTerminalUI implements InstanceListener {
         restartButton.setText("重启");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
-        gbc.gridx = 3;
+        gbc.gridx = 4;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 10, 5, 10);
@@ -145,7 +147,7 @@ public final class TunnelTerminalUI implements InstanceListener {
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 4;
+        gbc.gridwidth = 5;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
@@ -155,7 +157,7 @@ public final class TunnelTerminalUI implements InstanceListener {
         scrollPane1.setViewportView(terminal);
         final JPanel spacer1 = new JPanel();
         gbc = new GridBagConstraints();
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -163,10 +165,17 @@ public final class TunnelTerminalUI implements InstanceListener {
         toggleButton = new JButton();
         toggleButton.setText("开启");
         gbc = new GridBagConstraints();
-        gbc.gridx = 2;
+        gbc.gridx = 3;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         _root.add(toggleButton, gbc);
+        tunnelInfo = new JLabel();
+        tunnelInfo.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        _root.add(tunnelInfo, gbc);
     }
 
     /**
