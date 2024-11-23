@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.atcraftmc'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'net.java.dev.jna:jna:5.15.0'
+    implementation 'net.java.dev.jna:jna-platform:5.15.0'
+    implementation 'com.formdev:flatlaf:3.5.2'
+}
+
+jar {
+    archiveVersion = getVersion() as String;
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    from {
+        (configurations.runtimeClasspath).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+jar{
+    manifest {
+        archivesBaseName = 'OFMLite'
+        destinationDirectory = file('production')
+        attributes(
+                "Manifest-Version": 1.0,
+                'Main-Class': 'org.atcraftmc.ofmlite.Launch'
+        )
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

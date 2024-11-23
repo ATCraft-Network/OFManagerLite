@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.atcraftmc.ofmlite.ui.MainWindowUI">
+  <grid id="27dc6" binding="root" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="1203" height="772"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <splitpane id="24be2">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <continuousLayout value="false"/>
+          <dividerLocation value="348"/>
+          <enabled value="true"/>
+          <oneTouchExpandable value="false"/>
+          <orientation value="1"/>
+          <resizeWeight value="0.0"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="279" layout-manager="GridBagLayout">
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
+            <properties>
+              <enabled value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="e788e" layout-manager="BorderLayout" hgap="10" vgap="10">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag top="10" left="0" bottom="10" right="0" weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="994e7" class="javax.swing.JLabel">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <horizontalAlignment value="0"/>
+                      <horizontalTextPosition value="0"/>
+                      <text value="控制台"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="7462f" binding="tunnelTerminalWrapper" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="1.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="53234" layout-manager="GridBagLayout">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <hspacer id="2007f">
+                        <constraints>
+                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="0.0"/>
+                        </constraints>
+                      </hspacer>
+                      <vspacer id="ac636">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="0.0" weighty="1.0"/>
+                        </constraints>
+                      </vspacer>
+                      <hspacer id="b634b">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="0.0"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="494e4" class="javax.swing.JTextPane" default-binding="true">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="50"/>
+                          </grid>
+                          <gridbag weightx="0.0" weighty="0.0"/>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <enabled value="true"/>
+                          <text value="欢迎来到OFMLite!&#10;点击[添加隧道]创建实例&#10;或从左侧隧道列表选择一个实例&#10;&#10;本软件旨在为高级用户提供管理多条隧道的工具&#10;非熟悉Frpc的用户建议使用其他启动器" noi18n="true"/>
+                        </properties>
+                      </component>
+                      <vspacer id="e94e6">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="0.0" weighty="0.8"/>
+                        </constraints>
+                      </vspacer>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="3dd49" layout-manager="GridBagLayout">
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="8fdc2" layout-manager="BorderLayout" hgap="10" vgap="10">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag top="10" left="0" bottom="10" right="0" weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="3e3c" class="javax.swing.JLabel">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <horizontalAlignment value="0"/>
+                      <horizontalTextPosition value="0"/>
+                      <text value="隧道列表"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="6711d" layout-manager="BorderLayout" hgap="0" vgap="3">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag top="10" left="10" bottom="0" right="10" weightx="0.0" weighty="0.02" ipadx="1" ipady="10"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="be0a0" class="javax.swing.JButton" binding="createTunnelButton">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <text value="创建隧道"/>
+                      <verticalAlignment value="0"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="25554" layout-manager="GridBagLayout">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag top="5" left="10" bottom="10" right="10" weightx="0.0" weighty="0.02"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="27221" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <gridbag top="0" left="0" bottom="0" right="5" weightx="1.0" weighty="1.0"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="cf1f" class="javax.swing.JButton" binding="optionsButton">
+                        <constraints border-constraint="Center"/>
+                        <properties>
+                          <text value="选项"/>
+                          <verticalAlignment value="0"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="a6098" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="f7c0c" class="javax.swing.JButton" binding="editTunnelButton">
+                        <constraints border-constraint="Center"/>
+                        <properties>
+                          <horizontalAlignment value="0"/>
+                          <text value="编辑隧道"/>
+                          <verticalAlignment value="0"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="6c43e" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <gridbag top="0" left="5" bottom="0" right="0" weightx="0.0" weighty="1.0"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="dba21" class="javax.swing.JButton" binding="deleteTunnelButton">
+                        <constraints border-constraint="Center"/>
+                        <properties>
+                          <horizontalAlignment value="0"/>
+                          <text value="删除隧道"/>
+                          <verticalAlignment value="0"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <scrollpane id="b7615">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="1.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="a9b34" class="javax.swing.JList" binding="tunnelList">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </splitpane>
+    </children>
+  </grid>
+</form>
