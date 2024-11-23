@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
 
-public final class OptionsUI extends JDialog {
+public final class OptionsUI extends JDialog implements Refreshable {
     private JPanel contentPane;
     private JButton confirmButton;
     private JButton cancelButton;
@@ -17,6 +17,7 @@ public final class OptionsUI extends JDialog {
     private JButton reloadButton;
     private JTextField tf_globalToken;
     private JSpinner op_tunnelLogCount;
+    private JButton frpcGuideButton;
 
     public OptionsUI() {
         setContentPane(contentPane);
@@ -45,8 +46,10 @@ public final class OptionsUI extends JDialog {
         this.reloadButton.addActionListener(e -> reloadUI());
         this.confirmButton.addActionListener(e -> onOK());
         this.cancelButton.addActionListener(e -> onCancel());
+        this.frpcGuideButton.addActionListener(e -> SelectFrpcUI.open(this));
     }
 
+    @Override
     public void reloadUI() {
         SharedContext.loadConfig();
         this.themeSelector.setSelectedItem(SharedContext.CONFIG.getProperty("theme"));
@@ -181,6 +184,7 @@ public final class OptionsUI extends JDialog {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 2;
+        gbc.gridwidth = 2;
         gbc.weightx = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -197,6 +201,7 @@ public final class OptionsUI extends JDialog {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 3;
+        gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 5, 0);
@@ -206,6 +211,7 @@ public final class OptionsUI extends JDialog {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 6;
+        gbc.gridwidth = 2;
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.SOUTHEAST;
         panel3.add(label4, gbc);
@@ -214,12 +220,13 @@ public final class OptionsUI extends JDialog {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 7;
+        gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.EAST;
         gbc.insets = new Insets(0, 0, 10, 0);
         panel3.add(label5, gbc);
         final JPanel spacer3 = new JPanel();
         gbc = new GridBagConstraints();
-        gbc.gridx = 3;
+        gbc.gridx = 4;
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel3.add(spacer3, gbc);
@@ -246,6 +253,7 @@ public final class OptionsUI extends JDialog {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 4;
+        gbc.gridwidth = 2;
         gbc.weightx = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -255,6 +263,7 @@ public final class OptionsUI extends JDialog {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 5;
+        gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 5, 0);
@@ -266,6 +275,15 @@ public final class OptionsUI extends JDialog {
         gbc.gridy = 5;
         gbc.anchor = GridBagConstraints.WEST;
         panel3.add(label7, gbc);
+        frpcGuideButton = new JButton();
+        frpcGuideButton.setText("向导");
+        frpcGuideButton.setToolTipText("选择一个适合您的Frpc");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(0, 5, 0, 0);
+        panel3.add(frpcGuideButton, gbc);
         final JPanel spacer6 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 0;

@@ -35,6 +35,23 @@ public final class MainWindowUI {
         SharedContext.loadInstances();
 
         this.update();
+        this.deleteTunnelButton.addActionListener(actionEvent -> {
+            var instance = this.selected;
+            var msg = "你确定要删除这条隧道吗?[此操作不可撤销]\n" + "隧道: " + instance.toString();
+
+            int result = JOptionPane.showConfirmDialog(this.root, msg, "删除隧道", JOptionPane.YES_NO_OPTION);
+
+            // 处理用户选择
+            if (result == JOptionPane.YES_OPTION) {
+                if (this.selected.isRunning()) {
+                    this.selected.terminate();
+                }
+                SharedContext.INSTANCES.remove(instance.getName());
+                SharedContext.saveInstances();
+
+                update();
+            }
+        });
     }
 
     void update() {

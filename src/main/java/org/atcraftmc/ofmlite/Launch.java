@@ -1,11 +1,12 @@
 package org.atcraftmc.ofmlite;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import org.atcraftmc.ofmlite.ui.MainWindowUI;
+import org.atcraftmc.ofmlite.ui.SelectFrpcUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.util.Objects;
 
 public final class Launch {
@@ -13,21 +14,20 @@ public final class Launch {
         SharedContext.setTheme(FlatDarkLaf.class);
         SharedContext.loadConfig();
 
-        var logo = Launch.class.getClassLoader().getResource("icon.png");
+        var icon = new ImageIcon(Objects.requireNonNull(Launch.class.getClassLoader().getResource("icon.png")));
+        var trayLogo = new ImageIcon(Objects.requireNonNull(Launch.class.getClassLoader().getResource("tray.png")));
 
         var frame = new JFrame("OFManagerLite - 1.0");
-        var icon = new ImageIcon(Objects.requireNonNull(logo)); // 确保有一个合适的图标文件
-        var image = icon.getImage();
+         // 确保有一个合适的图标文件
 
         if (!SystemTray.isSupported()) {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         } else {
-
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
             var systemTray = SystemTray.getSystemTray();
             var popupMenu = new PopupMenu();
-            var trayIcon = new TrayIcon(image, "OFMLite-托盘", popupMenu);
+            var trayIcon = new TrayIcon(trayLogo.getImage(), "OFMLite-托盘", popupMenu);
             var showUI = new MenuItem("Display");
             var quit = new MenuItem("Quit");
 
@@ -39,9 +39,7 @@ public final class Launch {
             }
 
             showUI.addActionListener(e -> frame.setVisible(true));
-            quit.addActionListener(e -> {
-                System.exit(0);
-            });
+            quit.addActionListener(e -> System.exit(0));
             trayIcon.addActionListener(e -> frame.setVisible(true));
 
             popupMenu.add(showUI);
@@ -53,7 +51,7 @@ public final class Launch {
         frame.setSize(1280, 720);
         frame.setResizable(false);
         frame.setVisible(true);
-        frame.setIconImage(image);
+        frame.setIconImage(icon.getImage());
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             for (var i : SharedContext.INSTANCES.values()) {
@@ -70,6 +68,12 @@ public final class Launch {
                 process.destroyForcibly();
             }
         }));
+
+        var file = new File(SharedContext.CONFIG.getProperty("frpc").replace("{runtime}", SharedContext.RUNTIME_PATH));
+
+        if (!file.exists() || file.length() == 0) {
+            SelectFrpcUI.open(null);
+        }
     }
 
 
