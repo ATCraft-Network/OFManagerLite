@@ -45,11 +45,6 @@ public final class Instance {
 
         this.append("[OFMLite] 正在关闭...");
         try {
-            this.process.getOutputStream().write(3);
-            this.process.getOutputStream().flush();
-
-            ProcessKiller.sendCtrlC((int) this.process.pid());
-
             this.process.destroy();
             this.process.destroyForcibly();
         } catch (Exception e) {
