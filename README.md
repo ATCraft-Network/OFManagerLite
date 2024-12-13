@@ -4,7 +4,7 @@
 
 一个使用 swingUI 编写的，轻量化且易于上手的 Frp 隧道管理器。
 
-![JavaVersion](https://img.shields.io/badge/minecraft-1.17.1_--_1.20.4-3366CC?style=for-the-badge&logoColor=blue&labelColor=29355F)
+![PriceOfSoftware](https://img.shields.io/badge/PRICE-FULL%20FREE-3366CC?style=for-the-badge&logoColor=blue&labelColor=29355F)
 ![Java17+](https://img.shields.io/badge/java-17+-009B98?style=for-the-badge&logoColor=blue&labelColor=29355F)
 ![WindowsCompat](https://img.shields.io/badge/Windows%207-Compatible-green?style=for-the-badge&logoColor=blue&labelColor=29355F)
 
